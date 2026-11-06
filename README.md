@@ -5,6 +5,7 @@ Site statique en arabe RTL, organisé en pages HTML, styles et scripts partagés
 ## Pages
 
 - `index.html` : accueil et outils (Coran, adhkār, qibla, calendrier et hadith).
+- `quran.html` : lecture du texte complet d’une sourate et lecture audio de la sourate entière.
 - `dashboard.html` : tableau de bord des habitudes quotidiennes.
 - `tasbih.html` : compteur de dhikr avec sauvegarde locale.
 - `assets/favicon.svg` : icône du site.
@@ -18,6 +19,8 @@ Site statique en arabe RTL, organisé en pages HTML, styles et scripts partagés
 - `assets/css/tasbih.css` et `assets/js/tasbih.js` : styles et interactions du compteur.
 
 Ouvrir `index.html` dans un navigateur ou servir le dossier avec un serveur HTTP local. Les données de progression restent dans `localStorage`; les contenus dynamiques de la page principale dépendent des API externes.
+
+La bibliothèque du Coran utilise l’API publique AlQuran Cloud et ses flux audio CDN, sans clé API. Choisir une sourate l’ouvre dans `quran.html`, qui affiche tous ses versets, permet d’écouter la sourate complète, ou de toucher une ayah pour écouter cette ayah et consulter son tafsir.
 
 ## Référencement et publication
 

@@ -1,5 +1,6 @@
 (() => {
   const isHomePage = !!document.querySelector('#home');
+  const isQuranReaderPage = location.pathname.endsWith('/quran.html');
   const links = [
     [isHomePage ? '#home' : 'index.html#home', '⌂', 'الرئيسية', 'home'],
     [isHomePage ? '#quran' : 'index.html#quran', '۞', 'القرآن', 'quran'],
@@ -23,7 +24,8 @@
       const target = new URL(href, location.href);
       const sectionMatch = !target.hash || target.hash === location.hash ||
         (!location.hash && target.hash === '#home');
-      if (normalizePath(target.pathname) === normalizePath(location.pathname) && sectionMatch) {
+      const readerMatch = isQuranReaderPage && target.hash === '#quran';
+      if (readerMatch || (normalizePath(target.pathname) === normalizePath(location.pathname) && sectionMatch)) {
         link.setAttribute('aria-current', 'page');
       } else {
         link.removeAttribute('aria-current');

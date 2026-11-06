@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f2626">
+<meta name="description" content="اقرأ السورة كاملة واستمع إلى تلاوتها بصوت قارئك المفضّل مع سراج.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://siraj-islamic.vercel.app/quran.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site-header.css">
+<link rel="stylesheet" href="assets/css/site-nav.css">
+<link rel="stylesheet" href="assets/css/cookie-consent.css">
+<link rel="stylesheet" href="assets/css/quran-reader.css">
+<script src="assets/js/site-header.js" defer></script>
+<script src="assets/js/site-nav.js" defer></script>
+<script src="assets/js/cookie-consent.js" defer></script>
+<script src="assets/js/quran-reader.js" defer></script>
+<title>قراءة السورة كاملة | سراج إسلامي</title>
+</head>
+<body>
+<main class="reader-page">
+  <a class="back-link" href="index.html#quran">← العودة إلى قائمة السور</a>
+  <section class="surah-hero card" aria-labelledby="surah-name">
+    <p class="eyebrow">اقْرَأْ وَاسْتَمِعْ وَتَدَبَّرْ</p>
+    <h1 id="surah-name">جارٍ تحميل السورة…</h1>
+    <p id="surah-meta" class="mut" aria-live="polite"></p>
+    <div class="surah-nav">
+      <button id="previous-surah" type="button" disabled>السورة السابقة</button>
+      <button id="next-surah" type="button" disabled>السورة التالية</button>
+    </div>
+  </section>
+
+  <section class="audio-card card" aria-label="استماع إلى السورة كاملة">
+    <div class="audio-heading">
+      <span class="audio-icon" aria-hidden="true">♫</span>
+      <div><h2>استمع إلى السورة كاملة</h2><p class="mut">اختر القارئ ثم شغّل التلاوة من بدايتها إلى نهايتها.</p></div>
+    </div>
+    <label for="reciter">القارئ
+      <select id="reciter">
+        <option value="ar.alafasy">مشاري العفاسي</option>
+        <option value="ar.husary">محمود خليل الحصري</option>
+        <option value="ar.minshawi">محمد صديق المنشاوي</option>
+      </select>
+    </label>
+    <audio id="surah-audio" controls preload="none" aria-label="تلاوة السورة كاملة"></audio>
+    <p id="audio-status" class="mut" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="ayah-player" class="audio-card card ayah-player" aria-label="استماع إلى آية محددة" hidden>
+    <div class="audio-heading">
+      <span class="audio-icon" aria-hidden="true">♪</span>
+      <div><h2 id="ayah-player-title">استمع إلى الآية</h2><p class="mut">اضغط على أي آية في النص لتشغيلها منفردة.</p></div>
+    </div>
+    <audio id="ayah-audio" controls preload="none" aria-label="تلاوة الآية المحددة"></audio>
+    <p id="ayah-audio-status" class="mut" role="status" aria-live="polite"></p>
+    <button id="show-tafsir" type="button" aria-expanded="false">معنى الآية</button>
+    <p id="ayah-tafsir" class="ayah-tafsir" hidden></p>
+  </section>
+
+  <section class="reading-card card" aria-labelledby="reading-title">
+    <div class="reading-heading">
+      <div><p class="eyebrow">نَصُّ السُّورَةِ كَامِلًا</p><h2 id="reading-title">القراءة</h2></div>
+      <span id="ayah-count" class="mut"></span>
+    </div>
+    <p id="ayahs" class="ayahs" aria-label="آيات السورة">يتم تحميل آيات السورة…</p>
+  </section>
+  <p id="reader-error" class="reader-error" role="alert" hidden></p>
+</main>
+</body>
+</html>
