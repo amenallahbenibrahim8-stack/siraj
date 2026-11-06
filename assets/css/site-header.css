@@ -1,0 +1,12 @@
+.site-header{width:min(1120px,100%);margin:0 auto;padding:18px 24px 12px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.site-header__brand{min-width:0;display:inline-flex;align-items:center;gap:12px;color:var(--ink,#f4eedf);text-decoration:none}
+.site-header__logo{width:48px;height:48px;flex:none;display:block;filter:drop-shadow(0 5px 12px var(--glow,#dfbb691b))}
+.site-header__words{display:grid;gap:1px}
+.site-header__title{font:700 26px/1.2 'Amiri',serif;color:var(--gold,#dfbb69)}
+.site-header__tagline{font:400 11px/1.6 'Readex Pro',system-ui,sans-serif;color:var(--mut,var(--muted,#a9bcb4))}
+.site-header__actions{display:flex;align-items:center;gap:9px}
+.site-header__theme{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line,#31514b);border-radius:14px;background:var(--card,var(--surface,#183735));color:var(--gold,#dfbb69);font-size:19px;cursor:pointer;transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.site-header__theme:hover{border-color:var(--gold,#dfbb69);background:var(--glow,#dfbb691b);transform:translateY(-1px)}
+.site-header__theme:focus-visible{outline:2px solid var(--gold,#dfbb69);outline-offset:3px}
+@media(max-width:600px){.site-header{padding:14px 15px 10px}.site-header__logo{width:43px;height:43px}.site-header__title{font-size:24px}.site-header__tagline{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.site-header__theme{transition:none}}

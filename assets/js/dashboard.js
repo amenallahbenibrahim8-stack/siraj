@@ -41,8 +41,6 @@ function updateProgress(){
 $('#tabs').addEventListener('click',event=>{const tab=event.target.closest('[data-period]');if(tab){active=tab.dataset.period;render()}});
 $('#task-list').addEventListener('click',event=>{const task=event.target.closest('[data-task]');if(!task)return;const key=task.dataset.task;checks[key]=!checks[key];save(checks);render()});
 $('#reset').addEventListener('click',()=>{checks={};save(checks);render();toast('تمت إعادة تعيين قائمة اليوم')});
-$('#theme').addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=next;try{localStorage.setItem('theme',next==='light'?'l':'d')}catch(error){console.error('Unable to save theme preference',error)}});
-try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='l'?'light':'dark'}catch(error){console.error('Unable to read theme preference',error)}
 const hour=new Date().getHours();
 $('#welcome').textContent=hour<12?'صباح الخير':hour<18?'نهارك سعيد':'مساء الخير';
 $('#today').textContent=new Intl.DateTimeFormat('ar-TN',{weekday:'long',year:'numeric',month:'long',day:'numeric'}).format(new Date());

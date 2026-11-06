@@ -19,8 +19,10 @@
 <meta name="twitter:description" content="القرآن الكريم، الأذكار، مواقيت الصلاة، التقويم الهجري واتجاه القبلة.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site-header.css">
 <link rel="stylesheet" href="assets/css/site-nav.css">
 <link rel="stylesheet" href="assets/css/cookie-consent.css">
+<script src="assets/js/site-header.js" defer></script>
 <script src="assets/js/site-nav.js" defer></script>
 <script src="assets/js/cookie-consent.js" defer></script>
 <script type="application/ld+json">
@@ -128,8 +130,6 @@ button:active{transform:scale(.98)}
 </head>
 <body>
 <main>
-<div class="row"><div><h1>سراج</h1><p class="eyebrow">رَفِيقُكَ لِيَوْمٍ أَكْثَرَ طُمَأْنِينَة</p></div><button id="th" aria-label="تبديل المظهر">◐</button></div>
-
 <section id="home">
   <div class="card hero"><p class="mut" id="greet"></p><p class="ar" style="font-size:24px" id="hijri"></p></div>
   <div class="quick-actions" aria-label="اختصارات">
@@ -202,10 +202,6 @@ const err=e=>e.innerHTML='<span class="mut">تعذّر التحميل. تحقق 
 const today=()=>new Date().toISOString().slice(0,10);
 const doy=()=>Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);
 let loc=L('loc',{lat:36.8065,lon:10.1815,n:'تونس'});
-
-// theme
-document.documentElement.dataset.t=L('theme','d');
-$('#th').onclick=()=>{const t=document.documentElement.dataset.t=='d'?'l':'d';document.documentElement.dataset.t=t;W('theme',t)};
 
 // navigation with view transitions
 const V=['home','quran','adhkar','qibla','cal','hadith'];
