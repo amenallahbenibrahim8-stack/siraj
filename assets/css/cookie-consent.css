@@ -1,0 +1,18 @@
+.cookie-consent{position:fixed;z-index:100;inset:auto 16px calc(16px + env(safe-area-inset-bottom,0px));margin-inline:auto;width:min(760px,calc(100% - 32px));padding:18px;border:1px solid var(--line,#31514b);border-radius:20px;background:var(--card,var(--surface,#183735));color:var(--ink,#f4eedf);box-shadow:0 18px 55px #0005;font:14px/1.7 'Readex Pro',system-ui,sans-serif}
+.cookie-consent[hidden],.cookie-consent__settings[hidden]{display:none}
+body.has-bottom-nav .cookie-consent{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.cookie-consent__heading{margin:0 0 5px;color:var(--gold,#dfbb69);font-size:17px}
+.cookie-consent__copy{margin:0;color:var(--mut,var(--muted,#a9bcb4));font-size:12px}
+.cookie-consent__actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cookie-consent button{min-height:40px;padding:8px 13px;border:1px solid var(--line,#31514b);border-radius:12px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.cookie-consent button:hover,.cookie-consent button:focus-visible{border-color:var(--gold,#dfbb69);outline-color:var(--gold,#dfbb69)}
+.cookie-consent button[data-cookie-accept]{border-color:var(--gold,#dfbb69);background:var(--gold,#dfbb69);color:var(--bg,#102927);font-weight:700}
+.cookie-consent__settings{margin-top:12px;padding-top:12px;border-top:1px solid var(--line,#31514b)}
+.cookie-consent__settings p{margin:0 0 8px;color:var(--mut,var(--muted,#a9bcb4));font-size:12px}
+.cookie-consent__settings label{display:flex;align-items:center;gap:8px}
+.cookie-consent__settings input{width:auto;accent-color:var(--gold,#dfbb69)}
+.cookie-consent__reopen{position:fixed;z-index:19;inset:auto 12px calc(12px + env(safe-area-inset-bottom,0px)) auto;width:42px;height:42px;border:1px solid var(--line,#31514b);border-radius:50%;background:var(--card,var(--surface,#183735));color:var(--gold,#dfbb69);font-size:18px;cursor:pointer}
+body.has-bottom-nav .cookie-consent__reopen{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+.cookie-consent__reopen:focus-visible{outline:2px solid var(--gold,#dfbb69);outline-offset:2px}
+@media(max-width:480px){.cookie-consent{inset-inline:10px;width:auto;padding:15px}.cookie-consent__actions button{flex:1}}
+@media(prefers-reduced-motion:reduce){.cookie-consent *{scroll-behavior:auto!important}}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siraj-islamic.vercel.app/sitemap.xml
