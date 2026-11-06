@@ -26,7 +26,7 @@
   reopen.setAttribute('aria-label', 'إعدادات الخصوصية');
   reopen.title = 'إعدادات الخصوصية';
   document.body.append(banner, reopen);
-  if (document.querySelector('#nav')) document.body.classList.add('has-bottom-nav');
+  if (document.querySelector('.site-nav')) document.body.classList.add('has-bottom-nav');
 
   function readConsent() {
     try {

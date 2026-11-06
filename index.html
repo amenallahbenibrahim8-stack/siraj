@@ -69,9 +69,6 @@ input,select{background:var(--card);border:1px solid var(--line);border-radius:1
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
 .cal div{background:var(--card);border-radius:8px;padding:4px 0;font-size:13px}
 .cal .ev{border:1px solid var(--gold)}
-#nav{position:fixed;bottom:0;inset-inline:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
-#nav button{border:0;font-size:13px;color:var(--mut)}
-#nav button.on{color:var(--gold);font-weight:700}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}::view-transition-group(*){animation:none!important}}
 /* Refined, responsive visual system */
@@ -90,8 +87,6 @@ button:active{transform:scale(.98)}
 .mut{line-height:1.8}
 .eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.08em}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:24px 0 12px}
-.header-link{padding:7px 11px;border:1px solid var(--line);border-radius:11px;color:var(--gold);font-size:13px;text-decoration:none}
-.header-link:hover{background:var(--glow)}
 .hero{position:relative;overflow:hidden;padding:22px 24px;border:1px solid #d4a94f66;background:linear-gradient(135deg,#d4a94f1c,transparent 58%),var(--card)}
 .hero:after{content:"۞";position:absolute;inset-inline-end:12px;top:-34px;font:140px/1 'Amiri',serif;color:var(--gold);opacity:.08;pointer-events:none}
 .hero>*{position:relative;z-index:1}
@@ -128,16 +123,12 @@ button:active{transform:scale(.98)}
 .cal div{padding:8px 2px;border:1px solid transparent;border-radius:12px}
 .cal .ev{border-color:var(--gold);background:var(--glow)}
 #sheet{z-index:4;bottom:calc(78px + env(safe-area-inset-bottom,0px));box-shadow:var(--shadow);border-radius:22px}
-#nav{z-index:5;justify-content:center;gap:4px;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 35px #06191822;backdrop-filter:blur(20px)}
-#nav button{flex:1;max-width:120px;display:grid;justify-items:center;gap:1px;padding:5px 2px;border-radius:14px;font-size:11px}
-#nav button .ni{font-size:19px;line-height:1.2}
-#nav button.on{background:var(--glow)}
 @media(max-width:430px){main{padding:18px 14px}.card{padding:16px}.quick-actions{gap:7px}.quick-actions button{font-size:11px;min-height:74px}.cnt{padding:16px}.cnt .n{font-size:12px}}
 </style>
 </head>
 <body>
 <main>
-<div class="row"><div><h1>سراج</h1><p class="eyebrow">رَفِيقُكَ لِيَوْمٍ أَكْثَرَ طُمَأْنِينَة</p></div><div class="row"><a class="header-link" href="dashboard.html">لوحة يومي ↗</a><button id="th" aria-label="تبديل المظهر">◐</button></div></div>
+<div class="row"><div><h1>سراج</h1><p class="eyebrow">رَفِيقُكَ لِيَوْمٍ أَكْثَرَ طُمَأْنِينَة</p></div><button id="th" aria-label="تبديل المظهر">◐</button></div>
 
 <section id="home">
   <div class="card hero"><p class="mut" id="greet"></p><p class="ar" style="font-size:24px" id="hijri"></p></div>
@@ -203,8 +194,6 @@ button:active{transform:scale(.98)}
 </section>
 </main>
 
-<nav id="nav"></nav>
-
 <script>
 const $=s=>document.querySelector(s),L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},W=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}};
 const J=u=>fetch(u).then(r=>{if(!r.ok)throw 0;return r.json()});
@@ -219,13 +208,12 @@ document.documentElement.dataset.t=L('theme','d');
 $('#th').onclick=()=>{const t=document.documentElement.dataset.t=='d'?'l':'d';document.documentElement.dataset.t=t;W('theme',t)};
 
 // navigation with view transitions
-const V=[['home','⌂','الرئيسية'],['quran','۞','القرآن'],['adhkar','◉','الأذكار'],['qibla','⌖','القبلة'],['cal','▦','التقويم'],['hadith','❝','الحديث']];
-$('#nav').innerHTML=V.map(v=>`<button data-v="${v[0]}"><span class="ni" aria-hidden="true">${v[1]}</span><span>${v[2]}</span></button>`).join('');
+const V=['home','quran','adhkar','qibla','cal','hadith'];
 const inited={};
-function go(v,syncUrl=true){if(!V.some(x=>x[0]===v))return;if(syncUrl&&location.hash!=`#${v}`)history.pushState(null,'',`#${v}`);document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!=v);document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));scrollTo(0,0);if(!inited[v]&&init[v]){inited[v]=1;init[v]()}window.dispatchEvent(new Event('siraj:navigate'))}
-$('#nav').onclick=e=>{const b=e.target.closest('[data-v]');if(b)go(b.dataset.v)};
+function go(v,syncUrl=true){if(!V.includes(v))return;if(syncUrl&&location.hash!=`#${v}`)history.pushState(null,'',`#${v}`);document.querySelectorAll('main>section').forEach(s=>s.hidden=s.id!=v);scrollTo(0,0);if(!inited[v]&&init[v]){inited[v]=1;init[v]()}window.dispatchEvent(new Event('siraj:navigate'))}
+window.addEventListener('siraj:section',event=>go(event.detail,false));
 document.querySelector('.quick-actions').onclick=e=>{const b=e.target.closest('[data-go]');if(b)go(b.dataset.go)};
-window.addEventListener('popstate',()=>go(location.hash.slice(1)||'home',false));
+window.addEventListener('popstate',()=>go(V.includes(location.hash.slice(1))?location.hash.slice(1):'home',false));
 
 // ---------- HOME ----------
 let T=null;
@@ -400,7 +388,7 @@ function hdraw(){
 $('#hgo').onclick=hload;$('#hq').oninput=hdraw;
 
 const init={home,quran,adhkar,qibla,cal,hadith:hload};
-inited.home=1;const initial=V.some(x=>x[0]===location.hash.slice(1))?location.hash.slice(1):'home';go(initial,false);home();
+inited.home=1;const initial=V.includes(location.hash.slice(1))?location.hash.slice(1):'home';go(initial,false);home();
 </script>
 </body>
 </html>
