@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102927">
+<title>لوحة يومي · سراج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet" href="assets/css/site-nav.css">
+<script src="assets/js/site-nav.js" defer></script>
+</head>
+<body>
+<main class="wrap">
+  <header class="topbar">
+    <div class="brand"><div class="mark" aria-hidden="true">۞</div><div><h1>سراج</h1><p class="subtitle">لوحة يومي · عاداتك في مكان واحد</p></div></div>
+    <div class="top-actions">
+      <a class="back-link" href="index.html">الصفحة الرئيسية <span aria-hidden="true"> ←</span></a>
+      <button class="icon-btn" id="theme" type="button" aria-label="تبديل المظهر">◐</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="welcome">
+    <div class="hero-content hero-row">
+      <div>
+        <p class="eyebrow">خُطْوَةٌ صَغِيرَةٌ كُلَّ يَوْم</p>
+        <h2 id="welcome">أهلاً بك</h2>
+        <p class="date" id="today"></p>
+        <p class="muted" style="margin-top:12px">رتّب يومك بهدوء، واختر ما يناسبك من قائمة العادات.</p>
+      </div>
+      <div class="progress-ring" id="ring" role="progressbar" aria-label="إنجاز اليوم" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span><bdi id="percent">0%</bdi><small>إنجاز اليوم</small></span></div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="ملخص اليوم">
+    <div class="stat"><strong id="done-stat">0</strong><span>مهمة مكتملة</span></div>
+    <div class="stat"><strong id="left-stat">0</strong><span>مهمة متبقية</span></div>
+    <div class="stat"><strong>٥</strong><span>صلوات اليوم</span></div>
+    <div class="stat"><strong id="streak-stat">١</strong><span>يوم جديد</span></div>
+  </section>
+
+  <div class="section-title"><div><p class="eyebrow">وِرْدٌ وَعَادَات</p><h2>خطة يومك</h2></div><button class="reset" id="reset" type="button">إعادة تعيين اليوم</button></div>
+  <div class="layout">
+    <section class="panel" aria-label="قائمة العادات اليومية">
+      <div class="tabs" id="tabs" role="tablist" aria-label="فترات اليوم"></div>
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <div class="section-title" style="margin:0 0 6px"><div><p class="eyebrow">مَوَاقِيت</p><h2>الصلوات</h2></div></div>
+        <div class="prayer"><span>الفجر <small>☀</small></span><time>--:--</time></div>
+        <div class="prayer"><span>الظهر <small>◉</small></span><time>--:--</time></div>
+        <div class="prayer"><span>العصر <small>◉</small></span><time>--:--</time></div>
+        <div class="prayer"><span>المغرب <small>☾</small></span><time>--:--</time></div>
+        <div class="prayer"><span>العشاء <small>☾</small></span><time>--:--</time></div>
+        <p class="muted" style="font-size:11px;margin-top:8px">أوقات الصلاة غير محمّلة في هذه اللوحة.</p>
+      </section>
+      <section class="panel">
+        <div class="section-title" style="margin:0 0 12px"><div><p class="eyebrow">وُصُولٌ سَرِيع</p><h2>استكشف سراج</h2></div></div>
+        <div class="quick-grid">
+          <a class="quick" href="index.html#quran"><b>۞</b><span>المصحف الشريف</span></a>
+          <a class="quick" href="index.html#adhkar"><b>◉</b><span>الأذكار</span></a>
+          <a class="quick" href="index.html#qibla"><b>⌖</b><span>اتجاه القبلة</span></a>
+          <a class="quick" href="index.html#cal"><b>▦</b><span>التقويم الهجري</span></a>
+          <a class="quick" href="index.html#hadith"><b>❝</b><span>مكتبة الحديث</span></a>
+          <a class="quick" href="tasbih.html"><b>◌</b><span>المسبحة الإلكترونية</span></a>
+        </div>
+      </section>
+      <section class="panel wide">
+        <p class="eyebrow">تَذْكِيرٌ لَطِيف</p>
+        <p class="quote">«أحبُّ الأعمالِ إلى اللهِ أدومُها وإن قلَّ»</p>
+        <p class="quote-ref">حديث نبوي · صحيح البخاري وصحيح مسلم</p>
+      </section>
+    </aside>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/dashboard.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#102927">
+<title>المسبحة الإلكترونية · سراج</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet" href="assets/css/site-nav.css">
+<link rel="stylesheet" href="assets/css/tasbih.css">
+<script src="assets/js/site-nav.js" defer></script>
+<script src="assets/js/tasbih.js" defer></script>
+</head>
+<body>
+<main class="tasbih-main">
+  <header class="tasbih-head">
+    <div><h1>المسبحة الإلكترونية</h1><p>ذِكرٌ هادئ، وخطوةٌ صغيرة كل مرة</p></div>
+    <a class="back-link" href="index.html#adhkar">الأذكار <span aria-hidden="true"> ←</span></a>
+  </header>
+  <section class="tasbih-card" aria-labelledby="dhikr">
+    <p class="eyebrow">اختر وِرْدَكَ</p>
+    <div class="dhikr-select" id="options" aria-label="اختيار الذكر">
+      <button type="button" data-dhikr="subhanallah" aria-pressed="true">سبحان الله</button>
+      <button type="button" data-dhikr="alhamdulillah" aria-pressed="false">الحمد لله</button>
+      <button type="button" data-dhikr="allahuakbar" aria-pressed="false">الله أكبر</button>
+      <button type="button" data-dhikr="istighfar" aria-pressed="false">أستغفر الله</button>
+      <button type="button" data-dhikr="custom" aria-pressed="false">لا إله إلا الله</button>
+    </div>
+    <h2 id="dhikr">سبحان الله</h2>
+    <p class="hint">اضغط على الدائرة للعدّ · يمكنك التراجع أو البدء من جديد</p>
+    <div class="count-wrap">
+      <button class="count-button" id="count-button" type="button" aria-label="اضغط للعد">
+        <span><span class="count-number" id="count">٠</span><span class="count-target" id="target"></span></span>
+      </button>
+    </div>
+    <div class="count-progress" id="progressbar" role="progressbar" aria-label="التقدم نحو الهدف" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progress"></i></div>
+    <div class="count-caption"><span>التقدم</span><span>الهدف اليومي</span></div>
+    <div class="count-controls">
+      <button class="control" id="undo" type="button">↶ تراجع</button>
+      <button class="control primary" id="reset" type="button">إعادة العدّاد</button>
+    </div>
+    <p class="tasbih-toast" id="message" role="status" aria-live="polite"></p>
+    <p class="tasbih-note">يُحفَظ العدّاد على هذا الجهاز لهذا اليوم. اختر ذكراً آخر لتصفير عدّاده وبدء وِرد جديد.</p>
+  </section>
+</main>
+</body>
+</html>
